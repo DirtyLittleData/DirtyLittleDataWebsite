@@ -1,116 +1,951 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Breaking Plaid</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNDER CONSTRUCTION | Transforming Tech One Project at a Time</title>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #333f50;
+            --accent: #e94f37;
+            --light: #f6f8fa;
+            --dark: #2d3748;
+            --success: #38a169;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary)), url('/api/placeholder/1200/800');
+            background-blend-mode: multiply;
+            background-size: cover;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Cloud animation inspired by CB Website Design */
+        .cloud {
+            position: absolute;
+            opacity: 0.3;
+            border-radius: 50%;
+            background: white;
+            animation: float 60s linear infinite;
+        }
+        
+        .cloud-1 {
+            width: 100px;
+            height: 60px;
+            top: 10%;
+            left: -5%;
+            animation-duration: 90s;
+        }
+        
+        .cloud-2 {
+            width: 150px;
+            height: 80px;
+            top: 25%;
+            left: -5%;
+            animation-duration: 120s;
+        }
+        
+        .cloud-3 {
+            width: 80px;
+            height: 50px;
+            top: 60%;
+            left: -5%;
+            animation-duration: 70s;
+        }
+        
+        @keyframes float {
+            from { transform: translateX(-10%); }
+            to { transform: translateX(1200px); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            font-size: 1.5rem;
+            transform: rotate(45deg);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 0;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        /* Changing Text Animation */
+        .changing-text-section {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .changing-text-container {
+            font-size: 2.5rem;
+            font-weight: bold;
+            height: 4rem;
+        }
+        
+        .changing-text {
+            display: inline-block;
+            min-width: 15rem;
+            text-align: center;
+            color: var(--accent);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tag {
+            background-color: var(--light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--secondary);
+        }
+        
+        .services-section {
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            padding: 2rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .principle-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .principle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .principle-card:hover .principle-icon {
+            color: white;
+        }
+        
+        .principle-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-stack-section {
+            background-color: var(--light);
+        }
+        
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .team-section {
+            background-color: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-info h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-info p {
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            display: inline-block;
+            color: var(--primary);
+            background-color: var(--light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .contact-section {
+            background-color: var(--light);
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--accent);
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .hand-wave {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2rem;
+            background-color: var(--accent);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: wave 1.5s infinite;
+        }
+        
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-20deg); }
+            100% { transform: rotate(0deg); }
+        }
+        
+        /* Custom cursor */
+        .custom-cursor {
+            cursor: url('/api/placeholder/32/32'), auto;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content,
+            .team-grid {
+                flex-direction: column;
+            }
+            
+            .projects-grid,
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .changing-text-container {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <h1>BREAKING PLAID</h1>
-      <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#principles">Core Principles</a></li>
-        <li><a href="#tech">Tech Stack</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="hero">
-      <img src="BreakingBadHazmat.png" alt="Hero Shot" />
-      <h2>Transforming tech one project at a time</h2>
-      <a class="btn" href="#about">Learn More</a>
-    </div>
-  </header>
-
-  <section class="we-are">
-    <h2>WE ARE <span id="animated-text">...</span></h2>
-  </section>
-
-  <section id="portfolio">
-    <h2>Featured Projects</h2>
-    <ul>
-      <li>PDF Tracker</li>
-      <li>Chatbot</li>
-      <li>Quiz</li>
-      <li>Can Code?</li>
-    </ul>
-  </section>
-
-  <section id="services">
-    <h2>Services</h2>
-    <p>Consulting</p>
-  </section>
-
-  <section id="principles">
-    <h2>Core Principles</h2>
-    <div class="grid">
-      <div>Giving back</div>
-      <div>Commitment to excellence</div>
-      <div>Continuous learning</div>
-      <div>Clear communication</div>
-      <div>Human first</div>
-    </div>
-  </section>
-
-  <section id="tech">
-    <h2>Tech Stack</h2>
-    <ul>
-      <li>Python</li>
-      <li>Data</li>
-      <li>AI</li>
-      <li>Cloud</li>
-      <li>Front End</li>
-      <li>IT</li>
-    </ul>
-  </section>
-
-  <section id="about">
-    <h2>Our Origin Story</h2>
-    <p>While working together at GE Aerospace we bonded over work ethic, passion for data and defiance against the guys in plaid shirts. Breaking Plaid was born. We are dedicated to learning and teaching using clear language and practical examples. We embrace AI as our copilots on our technology journey: kind of like a big sister who gives awesome advice, but it's our job to do the work.</p>
-    <div class="bios">
-      <p>Jonny - <a href="https://jonnyblevins.com" target="_blank">jonnyblevins.com</a></p>
-      <p>Shifra - <a href="#">shifra-website.com</a></p>
-    </div>
-  </section>
-
-  <section id="hq">
-    <h2>Breaking Plaid HQ</h2>
-    <a href="https://github.com/your-repo" target="_blank">Visit our GitHub</a>
-  </section>
-
-  <section id="jokes">
-    <h2>Favorite Jokes</h2>
-    <p>Why did the data scientist break up with the graph? There was no correlation.</p>
-  </section>
-
-  <section id="collabs">
-    <h2>Past Collaborations</h2>
-    <p><a href="https://docs.google.com/presentation/d/14Vvb-JNGE2jIwyOxnHvwmE08LK7NyZpU_4ZjxnJ0hvc/edit" target="_blank">Breaking Plaid Talk</a></p>
-  </section>
-
-  <footer id="contact">
-    <h2>Contact</h2>
-    <p>Let's collaborate. <a href="https://docs.google.com/forms/d/e/1FAIpQLSearJiczk64rHc1A4xNrUB2JeDuLK0CvWX1uewqRevxNvbKiA/viewform" target="_blank">Contact Form</a></p>
-  </footer>
-
-  <script>
-    const messages = [
-      "Ready to grow with you",
-      "Students",
-      "Teachers",
-      "Mentors",
-      "Mentees"
-    ];
-    let index = 0;
-    const animatedText = document.getElementById("animated-text");
-    setInterval(() => {
-      animatedText.textContent = messages[index];
-      index = (index + 1) % messages.length;
-    }, 2000);
-  </script>
-</body>
-</html>
+    <div class="hand-wave" title="Wave hello!">👋</div>
+    
+    <header>
+        <!-- Cloud animation -->
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        
+        <div class="container">
+            <nav>
+                <a href="#" class="logo"><span class="logo-icon">✧</span> BREAKING PLAID</a>
+                <div class="nav-links">
+                    <a href="#about">Our Story</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#services">Services</a>
+                    <a href="#principles">Principles</a>
+                    <a href="#team">Team</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+            
+            <div class="hero">
+                <h1>BREAKING PLAID</h1>
+                <p>Transforming tech one project at a time</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn">LEARN MORE</a>
+                    <a href="#contact" class="btn btn-outline">GET IN TOUCH</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="changing-text-section">
+        <div class="container">
+            <div class="changing-text-container">
+                WE ARE <span class="changing-text">READY TO GROW WITH YOU</span>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Origin Story</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>While working together at GE Aerospace we bonded over work ethic, passion for data and ? against the guys in plaid shirts and breaking plaid was born. We are dedicated to learning and teaching using clear language and practical examples.</p>
+                    <p>We embrace AI as our copilots on our technology journey: kind of like a big sister who gives awesome advice, but it's our job to do "the work."</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="Breaking Plaid Team">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+                <p>Our portfolio of innovative solutions</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/200" alt="PDF Tracker">
+                    </div>
+                    <div class="project-content">
+                        <h3>PDF Tracker</h3>
+                        <p>An advanced tool for tracking, organizing, and analyzing PDF documents with intelligent features.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">Data Analysis</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/200" alt="Chatbot">
+                    </div>
+                    <div class="project-content">
+                        <h3>Chatbot</h3>
+                        <p>A customizable AI-powered chatbot solution for business and educational applications.</p>
+                        <div class="project-tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">Cloud</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/200" alt="Quiz App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Quiz</h3>
+                        <p>An interactive quiz platform designed for educational assessments and knowledge testing.</p>
+                        <div class="project-tags">
+                            <span class="tag">Front-End</span>
+                            <span class="tag">UX/UI</span>
+                            <span class="tag">Education</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/200" alt="Can Code?">
+                    </div>
+                    <div class="project-content">
+                        <h3>Can Code?</h3>
+                        <p>A learning platform that helps beginners assess and develop their coding abilities through practical challenges.</p>
+                        <div class="project-tags">
+                            <span class="tag">Education</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Web Dev</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Professional technology solutions for your needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Consulting</h3>
+                    <p>Expert guidance on technology strategy, implementation, and optimization for your business.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Data Analysis</h3>
+                    <p>Comprehensive data analysis services to extract valuable insights from your information.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>AI Implementation</h3>
+                    <p>Custom AI solutions designed to enhance efficiency and capabilities within your organization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="principles">
+        <div class="container">
+            <div class="section-title">
+                <h2>Core Principles</h2>
+                <p>Values that guide our work and relationships</p>
+            </div>
+            
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-icon">🤲</div>
+                    <h3>Giving Back</h3>
+                    <p>Volunteering and participating in community events to share knowledge and support others.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">✨</div>
+                    <h3>Commitment to Excellence</h3>
+                    <p>Embracing the idea that failure is the road to innovation and continuous improvement.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">📚</div>
+                    <h3>Dedication to Learning</h3>
+                    <p>Constantly expanding our knowledge and skills to stay at the forefront of technology.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">💬</div>
+                    <h3>Clear Communication</h3>
+                    <p>Using straightforward language and practical examples to convey complex ideas effectively.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">👥</div>
+                    <h3>Human First</h3>
+                    <p>Prioritizing people and their needs in all technological solutions and interactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="tech-stack-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tech Stack</h2>
+                <p>Our areas of expertise</p>
+            </div>
+            
+            <div class="tech-stack-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">🐍</div>
+                    <h3>Python</h3>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">📊</div>
+                    <h3>Data</h3>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">🧠</div>
+                    <h3>AI</h3>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">☁️</div>
+                    <h3>Cloud</h3>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">🖥️</div>
+                    <h3>Front End</h3>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">🔧</div>
+                    <h3>IT</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet The Team</h2>
+                <p>The faces behind Breaking Plaid</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-image">
+                        <img src="/api/placeholder/200/200" alt="Jonny">
+                    </div>
+                    <div class="team-info">
+                        <h3>Jonny</h3>
+                        <p>Technology enthusiast with a passion for innovative solutions. Leading the technical direction of Breaking Plaid.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">🔗</a>
+                            <a href="#" class="social-link">📱</a>
+                            <a href="#" class="social-link">📧</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-image">
+                        <img src="/api/placeholder/200/200" alt="Shifra">
+                    </div>
+                    <div class="team-info">
+                        <h3>Shifra</h3>
+                        <p>Data specialist with a knack for turning complex information into clear insights. Driving the analytical projects at Breaking Plaid.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">🔗</a>
+                            <a href="#" class="social-link">📱</a>
+                            <a href="#" class="social-link">📧</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to break some plaid together?</p>
+            </div>
+            
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <h3>BREAKING PLAID HQ</h3>
+            <p>Transforming tech one project at a time</p>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link">Home
