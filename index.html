@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -236,6 +237,7 @@
                     <div class="form-group">
                         <textarea name="message" placeholder="Message" rows="5" required></textarea>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LeXjQkrAAAAAAEiO3XLdfRtuRZ9z_OOAljv0oEf"></div>
                     <button type="submit" class="btn-primary">Send Message</button>
                 </form>
             </div>
@@ -317,6 +319,43 @@
             }
         });
         </script>
+        <script>
+            document.getElementById("contact-form").addEventListener("submit", async function(e) {
+                e.preventDefault();
+            
+                const form = e.target;
+                const recaptchaToken = grecaptcha.getResponse();
+            
+                if (!recaptchaToken) {
+                    alert("Please complete the reCAPTCHA.");
+                    return;
+                }
+            
+                const data = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    subject: form.subject.value,
+                    message: form.message.value,
+                    recaptchaToken: recaptchaToken
+                };
+            
+                const response = await fetch("http://localhost:3000/contact", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+            
+                if (response.ok) {
+                    alert("Message sent successfully!");
+                    form.reset();
+                    grecaptcha.reset(); // reset the checkbox
+                } else {
+                    alert("There was an error sending the message.");
+                }
+            });
+            </script>            
         
 </body>
 </html>
