@@ -19,22 +19,22 @@ app.post("/contact", async (req, res) => {
         return res.status(400).send("Invalid input");
     }
 
-    try {
-        const verifyUrl = `https://www.google.com/recaptcha/api/siteverify`;
-        const params = new URLSearchParams();
-        params.append("secret", process.env.RECAPTCHA_SECRET);
-        params.append("response", recaptchaToken);
+    // try {
+    //     const verifyUrl = `https://www.google.com/recaptcha/api/siteverify`;
+    //     const params = new URLSearchParams();
+    //     params.append("secret", process.env.RECAPTCHA_SECRET);
+    //     params.append("response", recaptchaToken);
 
-        const response = await axios.post(verifyUrl, params);
-        const { success } = response.data;
+    //     const response = await axios.post(verifyUrl, params);
+    //     const { success } = response.data;
 
-        if (!success) {
-            return res.status(403).send("Failed reCAPTCHA verification.");
-        }
-    } catch (err) {
-        console.error("reCAPTCHA error:", err.response?.data || err.message);
-        return res.status(500).send("reCAPTCHA verification failed.");
-    }
+    //     if (!success) {
+    //         return res.status(403).send("Failed reCAPTCHA verification.");
+    //     }
+    // } catch (err) {
+    //     console.error("reCAPTCHA error:", err.response?.data || err.message);
+    //     return res.status(500).send("reCAPTCHA verification failed.");
+    // }
 
     const msg = {
         to: "BlevinsJonny@gmail.com",
