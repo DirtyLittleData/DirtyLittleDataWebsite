@@ -3,26 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breaking Plaid | Transforming Tech One Project at a Time</title>
+    <title>Dirty Little Data | Getting a Life One Project at a Time</title>
+    <meta name="description" content="Dirty Little Data is a tech duo dedicated to transforming tech one project at a time through consulting, portfolio projects, and AI integration.">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">
-                <a href="#">BREAKING PLAID</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#principles">Principles</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact" class="btn-contact">Contact</a></li>
-            </ul>
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -33,41 +24,78 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="video-background">
+            <video autoplay muted loop playsinline>
+                <source src="videos/hero-bg.mp4" type="video/mp4">
+            </video>
+            <div class="overlay"></div>
+        </div>
         <div class="container">
-            <div class="hero-content">
-                <h1>Under Construction_</h1>
+            <div class="hero-content" data-aos="fade-up">
+                <h1>DirtyLittleData_</h1>
                 <h2>Transforming tech one project at a time</h2>
                 <a href="#services" class="btn-primary">LEARN MORE</a>
             </div>
         </div>
     </section>
 
+    <section class="ribbon-navigation">
+        <div class="container">
+            <div class="ribbon-nav">
+                <div class="ribbon-item">
+                    <a href="#services" class="ribbon-link">Services</a>
+                </div>
+                <div class="ribbon-item">
+                    <a href="#projects" class="ribbon-link">Projects</a>
+                </div>
+                <div class="ribbon-item">
+                    <a href="#principles" class="ribbon-link">Principles</a>
+                </div>
+                <div class="ribbon-item">
+                    <a href="#about" class="ribbon-link">About Us</a>
+                </div>
+                <div class="ribbon-item">
+                    <a href="#contact" class="ribbon-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- We Are Section -->
     <section class="we-are">
+        <div class="parallax-background">
+            <div class="floating-shape shape1"></div>
+            <div class="floating-shape shape2"></div>
+        </div>
         <div class="container">
-            <h2>WE ARE <span id="animated-text"></span></h2>
+            <h2 data-aos="fade-up">WE ARE <span id="animated-text"></span></h2>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Services</h2>
+            <h2 class="section-title" data-aos="fade-up">Services</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">How we can help your business grow</p>
+            
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-laptop-code"></i>
                     <h3>Consulting</h3>
                     <p>Tech strategy and implementation guidance tailored to your needs.</p>
+                    <div class="service-hover"></div>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-project-diagram"></i>
                     <h3>Portfolio Projects</h3>
                     <p>Custom solutions from concept to deployment.</p>
+                    <div class="service-hover"></div>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-robot"></i>
                     <h3>AI Integration</h3>
                     <p>Leveraging AI as copilots in your technology journey.</p>
+                    <div class="service-hover"></div>
                 </div>
             </div>
         </div>
@@ -75,10 +103,15 @@
 
     <!-- Featured Projects Section -->
     <section id="projects" class="projects">
+        <div class="parallax-background">
+            <div class="floating-shape shape3"></div>
+        </div>
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Recent work we're proud of</p>
+            
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image">
                         <img src="/api/placeholder/600/400" alt="PDF Tracker">
                     </div>
@@ -88,7 +121,7 @@
                         <a href="#" class="btn-secondary">View Project</a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-image">
                         <img src="/api/placeholder/600/400" alt="Chatbot">
                     </div>
@@ -98,7 +131,7 @@
                         <a href="#" class="btn-secondary">View Project</a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="project-image">
                         <img src="/api/placeholder/600/400" alt="Quiz Platform">
                     </div>
@@ -115,34 +148,36 @@
     <!-- Core Principles Section -->
     <section id="principles" class="principles">
         <div class="container">
-            <h2 class="section-title">Core Principles</h2>
+            <h2 class="section-title" data-aos="fade-up">Core Principles</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">What drives our work</p>
+            
             <div class="principles-grid">
-                <div class="principle-box">
+                <div class="principle-box accent-primary" data-aos="fade-up" data-aos-delay="150">
                     <i class="fas fa-hands-helping"></i>
                     <h3>Giving Back</h3>
                     <p>Volunteering and participating in community events.</p>
                 </div>
-                <div class="principle-box">
+                <div class="principle-box accent-dark" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-award"></i>
                     <h3>Commitment to Excellence</h3>
                     <p>Failure is the road to innovation.</p>
                 </div>
-                <div class="principle-box">
+                <div class="principle-box accent-green" data-aos="fade-up" data-aos-delay="250">
                     <i class="fas fa-book-reader"></i>
                     <h3>Continuous Learning</h3>
                     <p>Always evolving our skills and knowledge.</p>
                 </div>
-                <div class="principle-box">
+                <div class="principle-box accent-grey" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-comments"></i>
                     <h3>Clear Communication</h3>
                     <p>Using straightforward language and practical examples.</p>
                 </div>
-                <div class="principle-box">
+                <div class="principle-box accent-light" data-aos="fade-up" data-aos-delay="350">
                     <i class="fas fa-user-friends"></i>
                     <h3>Human First</h3>
                     <p>Technology that serves people, not the other way around.</p>
                 </div>
-                <div class="principle-box">
+                <div class="principle-box accent-green" data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-server"></i>
                     <h3>Tech Stack</h3>
                     <p>Python, Data, AI, Cloud, Front End, IT</p>
@@ -153,45 +188,88 @@
 
     <!-- Our Origin Story Section -->
     <section class="origin-story">
+        <div class="parallax-background">
+            <div class="floating-shape shape1"></div>
+            <div class="floating-shape shape3"></div>
+        </div>
         <div class="container">
-            <h2 class="section-title">Our Origin Story</h2>
-            <p>While working together at GE Aerospace, we bonded over work ethic, passion for data, and rebellion against the guys in plaid shirts—and Breaking Plaid was born. We are dedicated to learning and teaching using clear language and practical examples.</p>
-            <p>We embrace AI as our copilots on our technology journey: kind of like a big sister who gives awesome advice, but it's our job to do "the work."</p>
+            <h2 class="section-title" data-aos="fade-up">Our Origin Story</h2>
+            <div class="story-content" data-aos="fade-up" data-aos-delay="100">
+                <p>While working together at GE Aerospace, we bonded over work ethic, passion for data, and rebellion against the guys in plaid shirts—and Breaking Plaid was born. We are dedicated to learning and teaching using clear language and practical examples.</p>
+                <p>We embrace AI as our copilots on our technology journey: kind of like a big sister who gives awesome advice, but it's our job to do "the work."</p>
+            </div>
         </div>
     </section>
 
     <!-- About Us Section -->
     <section id="about" class="about">
+        <div class="parallax-background">
+            <div class="floating-shape shape1"></div>
+            <div class="floating-shape shape2"></div>
+            <div class="floating-shape shape3"></div>
+        </div>
         <div class="container">
-            <h2 class="section-title">About Us</h2>
+            <h2 class="section-title" data-aos="fade-up">About Us</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">The tech rebels behind Breaking Plaid</p>
+            
             <div class="team-grid">
-                <div class="team-member">
-                    <img src="/api/placeholder/300/300" alt="Jonny">
-                    <h3>Jonny</h3>
-                    <p>Tech enthusiast with a passion for clean code and innovative solutions. Always looking for the next challenge.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fas fa-globe"></i></a>
-                    </div>
-                </div>
-                <div class="team-member">
+                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
                     <div class="video-container">
                         <video autoplay muted loop playsinline>
                             <source src="images/jonny-video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="overlay-content">
-                            <h3>Shifra</h3>
-                            <p>Data-driven developer combining analytical expertise with creative problem-solving. Committed to mentoring the next generation of tech professionals.</p>
-                            <div class="social-links">
-                                <a href="#"><i class="fab fa-github"></i></a>
-                                <a href="#"><i class="fab fa-linkedin"></i></a>
-                                <a href="#"><i class="fas fa-globe"></i></a>
+                            <div class="member-info">
+                                <h3>Jonny</h3>
+                                <p class="title">Tech Enthusiast</p>
+                                <p class="bio">Passionate about clean code and innovative solutions. Always looking for the next challenge.</p>
+                                <div class="social-links">
+                                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" aria-label="Personal Website"><i class="fas fa-globe"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="team-card-hover">
+                        <div class="hover-content">
+                            <p>"Technology should solve real problems for real people."</p>
+                        </div>
+                    </div>
                 </div>
+                
+                <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="video-container">
+                        <video autoplay muted loop playsinline>
+                            <source src="images/shifra-video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="overlay-content">
+                            <div class="member-info">
+                                <h3>Shifra</h3>
+                                <p class="title">Data Specialist</p>
+                                <p class="bio">Data-driven developer combining analytical expertise with creative problem-solving. Committed to mentoring the next generation of tech professionals.</p>
+                                <div class="social-links">
+                                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" aria-label="Personal Website"><i class="fas fa-globe"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card-hover">
+                        <div class="hover-content">
+                            <p>"Great data tells stories that transform businesses."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-values" data-aos="fade-up" data-aos-delay="400">
+                <h3>Our Values</h3>
+                <p>While working together at GE Aerospace, we bonded over work ethic, passion for data, and rebellion against the guys in plaid shirts—and Breaking Plaid was born. We are dedicated to learning and teaching using clear language and practical examples.</p>
+                <p>We embrace AI as our copilots on our technology journey: kind of like a big sister who gives awesome advice, but it's our job to do "the work."</p>
             </div>
         </div>
     </section>
@@ -199,10 +277,10 @@
     <!-- Breaking Plaid HQ -->
     <section class="hq">
         <div class="container">
-            <h2 class="section-title">Breaking Plaid HQ</h2>
-            <div class="hq-content">
+            <h2 class="section-title" data-aos="fade-up">Dirty Little Data HQ</h2>
+            <div class="hq-content" data-aos="fade-up" data-aos-delay="100">
                 <p>Check out our projects and repositories:</p>
-                <a href="https://github.com/breaking-plaid" class="btn-secondary" target="_blank">
+                <a href="https://github.com/breaking-plaid" class="btn-secondary" target="_blank" rel="noopener">
                     <i class="fab fa-github"></i> GitHub
                 </a>
             </div>
@@ -212,11 +290,11 @@
     <!-- Past Collaborations -->
     <section class="collaborations">
         <div class="container">
-            <h2 class="section-title">Past Collaborations</h2>
-            <div class="collab-content">
+            <h2 class="section-title" data-aos="fade-up">Past Collaborations</h2>
+            <div class="collab-content" data-aos="fade-up" data-aos-delay="100">
                 <div class="collab-item">
                     <h3>Breaking Plaid Talk</h3>
-                    <a href="https://docs.google.com/presentation/d/14Vvb-JNGE2jIwyOxnHvwmE08LK7NyZpU_4ZjxnJ0hvc/edit" target="_blank" class="btn-secondary">
+                    <a href="https://docs.google.com/presentation/d/14Vvb-JNGE2jIwyOxnHvwmE08LK7NyZpU_4ZjxnJ0hvc/edit" target="_blank" rel="noopener" class="btn-secondary">
                         <i class="fas fa-external-link-alt"></i> View Presentation
                     </a>
                 </div>
@@ -227,24 +305,70 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-form">
-                <form id="contact-form">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Name" required>
+            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">We'd love to hear from you</p>
+            
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>admin@dirtylittledata.com</p>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Email" required>
+                    <div class="info-card">
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub</h3>
+                        <p>github.com/breaking-plaid</p>
                     </div>
-                    <div class="form-group">
-                        <input type="text" name="subject" placeholder="Subject">
+                    <div class="info-card">
+                        <i class="fas fa-code-branch"></i>
+                        <h3>Open for Collaboration</h3>
+                        <p>Let's build something amazing together</p>
                     </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Message" rows="5" required></textarea>
-                    </div>
-                    <div class="g-recaptcha" data-sitekey="6LcoKg0rAAAAAHrMWp5nKdtL5ssD5NyDAMuE-439"></div>
-                    <button type="submit" class="btn-primary">Send Message</button>
-                </form>
+                </div>
+                
+                <div class="contact-form-container" data-aos="fade-up" data-aos-delay="300">
+                    <form id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="btn-primary">
+                                <span class="btn-text">Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="form-status">
+                            <div class="success-message">
+                                <i class="fas fa-check-circle"></i>
+                                <p>Message sent successfully!</p>
+                            </div>
+                            <div class="error-message">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <p>There was an error sending your message.</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -269,9 +393,9 @@
                 <div class="footer-social">
                     <h4>Connect With Us</h4>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
@@ -281,7 +405,20 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
     <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out',
+                once: true
+            });
+        });
+        
+        // Animated Text
         const messages = [
           "Ready to grow with you",
           "Students",
@@ -295,42 +432,92 @@
           animatedText.textContent = messages[index];
           index = (index + 1) % messages.length;
         }, 2000);
-    </script>
-
-    <script>
-        document.getElementById("contact-form").addEventListener("submit", async function(e) {
-            e.preventDefault();
         
-            const form = e.target;
-            const recaptchaToken = grecaptcha.getResponse();
+        // Mobile menu toggle
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
         
-            if (!recaptchaToken) {
-                alert("Please complete the reCAPTCHA.");
-                return;
-            }
-        
-            const data = {
-                name: form.name.value,
-                email: form.email.value,
-                subject: form.subject.value,
-                message: form.message.value,
-                recaptchaToken: recaptchaToken
-            };
-        
-            const response = await fetch("https://dirtylittledata.com/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
+        if (hamburger) {
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                navLinks.classList.toggle("active");
             });
+        }
         
-            if (response.ok) {
-                alert("Message sent successfully!");
-                form.reset();
-                grecaptcha.reset(); // reset the checkbox
-            } else {
-                alert("There was an error sending the message.");
+        // Close mobile menu when clicking a link
+        document.querySelectorAll(".nav-links li a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navLinks.classList.remove("active");
+            });
+        });
+    </script>
+    
+    <!-- Contact form script -->
+    <script>
+        // Contact form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            const successMessage = document.querySelector('.success-message');
+            const errorMessage = document.querySelector('.error-message');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    // Reset message states
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'none';
+                    
+                    // Show loading state
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    const buttonText = submitButton.querySelector('.btn-text');
+                    const originalText = buttonText.textContent;
+                    
+                    buttonText.textContent = 'Sending...';
+                    submitButton.disabled = true;
+                    
+                    // Gather form data
+                    const formData = {
+                        name: contactForm.name.value,
+                        email: contactForm.email.value,
+                        subject: contactForm.subject.value,
+                        message: contactForm.message.value
+                    };
+                    
+                    try {
+                        const response = await fetch('https://dirtylittledata.com/contact', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(formData)
+                        });
+                        
+                        if (response.ok) {
+                            // Show success message
+                            successMessage.style.display = 'flex';
+                            contactForm.reset();
+                            
+                            // Hide success message after 5 seconds
+                            setTimeout(() => {
+                                successMessage.style.display = 'none';
+                            }, 5000);
+                        } else {
+                            // Show error message
+                            errorMessage.style.display = 'flex';
+                            console.error('Form submission error:', await response.text());
+                        }
+                    } catch (err) {
+                        // Show error message for network errors
+                        errorMessage.style.display = 'flex';
+                        console.error('Network error:', err);
+                    } finally {
+                        // Reset button state
+                        buttonText.textContent = originalText;
+                        submitButton.disabled = false;
+                    }
+                });
             }
         });
     </script>
