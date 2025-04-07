@@ -230,7 +230,6 @@
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-form">
                 <form id="contact-form">
-                <form action="http://httpbin.org/post" method="POST">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Name" required>
                     </div>
@@ -318,7 +317,7 @@
                 recaptchaToken: recaptchaToken
             };
         
-            const response = await fetch("http://localhost:3000/contact", {
+            const response = await fetch("https://dirtylittledata.com/contact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
