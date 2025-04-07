@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const MAX_MSG_LEN = 1000;
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY); // Store key in .env file
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 app.use(bodyParser.json());
 
@@ -20,7 +20,7 @@ app.post("/contact", async (req, res) => {
 
     const msg = {
         to: "BlevinsJonny@gmail.com",
-        from: "admin@dirtylittledata.com", // MUST be verified in SendGrid
+        from: "admin@dirtylittledata.com",
         subject: subject || "New contact form submission",
         text: `
 From: ${name || "No name provided"} <${email}>

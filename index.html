@@ -155,10 +155,8 @@
     <section class="origin-story">
         <div class="container">
             <h2 class="section-title">Our Origin Story</h2>
-            <div class="story-content">
-                <p>While working together at GE Aerospace we bonded over work ethic, passion for data and rebellion against the guys in plaid shirts—and Breaking Plaid was born. We are dedicated to learning and teaching using clear language and practical examples.</p>
-                <p>We embrace AI as our copilots on our technology journey: kind of like a big sister who gives awesome advice, but it's our job to do "the work."</p>
-            </div>
+            <p>While working together at GE Aerospace, we bonded over work ethic, passion for data, and rebellion against the guys in plaid shirts—and Breaking Plaid was born. We are dedicated to learning and teaching using clear language and practical examples.</p>
+            <p>We embrace AI as our copilots on our technology journey: kind of like a big sister who gives awesome advice, but it's our job to do "the work."</p>
         </div>
     </section>
 
@@ -193,7 +191,7 @@
                             </div>
                         </div>
                     </div>
-</div>
+                </div>
             </div>
         </div>
     </section>
@@ -244,7 +242,7 @@
                     <div class="form-group">
                         <textarea name="message" placeholder="Message" rows="5" required></textarea>
                     </div>
-                    <div class="g-recaptcha" data-sitekey="6LeXjQkrAAAAAAEiO3XLdfRtuRZ9z_OOAljv0oEf"></div>
+                    <div class="g-recaptcha" data-sitekey="6LeXDA0rAAAAAN3nSkmpjU1ClBVvuZKBiOzbfwZf"></div>
                     <button type="submit" class="btn-primary">Send Message</button>
                 </form>
             </div>
@@ -282,7 +280,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script>
         const messages = [
           "Ready to grow with you",
@@ -297,17 +295,26 @@
           animatedText.textContent = messages[index];
           index = (index + 1) % messages.length;
         }, 2000);
-      </script>
+    </script>
+
     <script>
         document.getElementById("contact-form").addEventListener("submit", async function(e) {
             e.preventDefault();
         
             const form = e.target;
+            const recaptchaToken = grecaptcha.getResponse();
+        
+            if (!recaptchaToken) {
+                alert("Please complete the reCAPTCHA.");
+                return;
+            }
+        
             const data = {
                 name: form.name.value,
                 email: form.email.value,
                 subject: form.subject.value,
-                message: form.message.value
+                message: form.message.value,
+                recaptchaToken: recaptchaToken
             };
         
             const response = await fetch("http://localhost:3000/contact", {
@@ -321,48 +328,11 @@
             if (response.ok) {
                 alert("Message sent successfully!");
                 form.reset();
+                grecaptcha.reset(); // reset the checkbox
             } else {
                 alert("There was an error sending the message.");
             }
         });
-        </script>
-        <script>
-            document.getElementById("contact-form").addEventListener("submit", async function(e) {
-                e.preventDefault();
-            
-                const form = e.target;
-                const recaptchaToken = grecaptcha.getResponse();
-            
-                if (!recaptchaToken) {
-                    alert("Please complete the reCAPTCHA.");
-                    return;
-                }
-            
-                const data = {
-                    name: form.name.value,
-                    email: form.email.value,
-                    subject: form.subject.value,
-                    message: form.message.value,
-                    recaptchaToken: recaptchaToken
-                };
-            
-                const response = await fetch("http://localhost:3000/contact", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(data)
-                });
-            
-                if (response.ok) {
-                    alert("Message sent successfully!");
-                    form.reset();
-                    grecaptcha.reset(); // reset the checkbox
-                } else {
-                    alert("There was an error sending the message.");
-                }
-            });
-            </script>            
-        
+    </script>
 </body>
 </html>
