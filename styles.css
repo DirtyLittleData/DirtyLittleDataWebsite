@@ -35,6 +35,14 @@ body {
     overflow-x: hidden;
 }
 
+a:link {
+    color:#56eea5
+}
+
+a:visited {
+    color: rgb(8, 137, 8);
+  }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
