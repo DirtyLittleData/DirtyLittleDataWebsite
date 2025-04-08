@@ -228,7 +228,6 @@
             <h2 class="section-title" data-aos="fade-up">Our Origin Story</h2>
             <div class="story-content" data-aos="fade-up" data-aos-delay="100">
                 <p>While working together at GE Aerospace, we bonded over work ethic, passion for data, and rebellion against the guys in plaid shirts—and "Breaking Plaid" was born. Unfortuantely the "Breaking Plaid" domain name would be taken, but we have plenty of puns, and found "Dirty Little Data" too perfect to pass up. We are dedicated to learning and teaching using clear language and practical examples.</p>
-                <p>We embrace AI as our copilots on our technology journey: kind of like a big sister who gives awesome advice, but it's our job to do "the work."</p>
             </div>
         </div>
     </section>
@@ -257,7 +256,7 @@
                             <div class="member-info">
                                 <h3>Shifra</h3>
                                 <p class="title">Data Specialist</p>
-                                <p class="bio">Data-driven developer combining analytical expertise with creative problem-solving. Committed to mentoring the next generation of tech professionals.</p>
+                                <p class="bio">Data-driven developer combining analytical <br> expertise with creative problem-solving. <br> Committed to mentoring the next generation <br> of tech professionals.</p>
                                 <div class="social-links">
                                     <a href="https://github.com/PlantGirlCodes" aria-label="GitHub"><i class="fab fa-github"></i></a>
                                     <a href="https://www.linkedin.com/in/shifragoldberg/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -283,7 +282,7 @@
                             <div class="member-info">
                                 <h3>Jonny</h3>
                                 <p class="title">Tech Enthusiast</p>
-                                <p class="bio">Passionate about functional code and innovative people. Always looking for the next challenge. Has too many ALT codes memorized.</p>
+                                <p class="bio">Passionate about functional code and <br> innovative people. Always looking for the <br>next challenge. Has too many ALT codes <br> memorized.</p>
                                 <div class="social-links">
                                     <a href="https://github.com/jonnyblevins" aria-label="GitHub"><i class="fab fa-github"></i></a>
                                     <a href="https://www.linkedin.com/in/jonnyblevins/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -303,7 +302,6 @@
             
             <div class="team-values" data-aos="fade-up" data-aos-delay="400">
                 <h3>Our Values</h3>
-                <p>While working together at GE Aerospace, we bonded over work ethic, passion for data, and rebellion against the guys in plaid shirts—and Breaking Plaid was born. We are dedicated to learning and teaching using clear language and practical examples.</p>
                 <p>We embrace AI as our copilots on our technology journey: kind of like a big sister who gives awesome advice, but it's our job to do "the work."</p>
             </div>
         </div>
@@ -473,73 +471,85 @@
         });
     </script>
     
-    <!-- Contact form script -->
-    <script>
-        // Contact form handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contact-form');
-            const successMessage = document.querySelector('.success-message');
-            const errorMessage = document.querySelector('.error-message');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', async function(e) {
-                    e.preventDefault();
+<!-- Contact form script -->
+<script>
+    // Contact form handling
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.querySelector('.success-message');
+        const errorMessage = document.querySelector('.error-message');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Reset message states
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+                
+                // Show loading state
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                const buttonText = submitButton.querySelector('.btn-text');
+                const originalText = buttonText.textContent;
+                
+                buttonText.textContent = 'Sending...';
+                submitButton.disabled = true;
+                
+                // Gather form data
+                const formData = {
+                    name: contactForm.name.value,
+                    email: contactForm.email.value,
+                    subject: contactForm.subject.value,
+                    message: contactForm.message.value
+                };
+                
+                try {
+                    // Determine the correct API endpoint based on environment
+                    let apiEndpoint;
+                    const currentHostname = window.location.hostname;
                     
-                    // Reset message states
-                    successMessage.style.display = 'none';
-                    errorMessage.style.display = 'none';
-                    
-                    // Show loading state
-                    const submitButton = contactForm.querySelector('button[type="submit"]');
-                    const buttonText = submitButton.querySelector('.btn-text');
-                    const originalText = buttonText.textContent;
-                    
-                    buttonText.textContent = 'Sending...';
-                    submitButton.disabled = true;
-                    
-                    // Gather form data
-                    const formData = {
-                        name: contactForm.name.value,
-                        email: contactForm.email.value,
-                        subject: contactForm.subject.value,
-                        message: contactForm.message.value
-                    };
-                    
-                    try {
-                        const response = await fetch('https://dirtylittledata.com/contact', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(formData)
-                        });
-                        
-                        if (response.ok) {
-                            // Show success message
-                            successMessage.style.display = 'flex';
-                            contactForm.reset();
-                            
-                            // Hide success message after 5 seconds
-                            setTimeout(() => {
-                                successMessage.style.display = 'none';
-                            }, 5000);
-                        } else {
-                            // Show error message
-                            errorMessage.style.display = 'flex';
-                            console.error('Form submission error:', await response.text());
-                        }
-                    } catch (err) {
-                        // Show error message for network errors
-                        errorMessage.style.display = 'flex';
-                        console.error('Network error:', err);
-                    } finally {
-                        // Reset button state
-                        buttonText.textContent = originalText;
-                        submitButton.disabled = false;
+                    if (currentHostname === 'localhost' || currentHostname === '127.0.0.1') {
+                        // Local development - use local server
+                        apiEndpoint = 'http://localhost:5000/contact';
+                    } else {
+                        // Production - use production server
+                        apiEndpoint = 'https://dirtylittledata.com/contact';
                     }
-                });
-            }
-        });
-    </script>
+                    
+                    const response = await fetch(apiEndpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    if (response.ok) {
+                        // Show success message
+                        successMessage.style.display = 'flex';
+                        contactForm.reset();
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            successMessage.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        // Show error message
+                        errorMessage.style.display = 'flex';
+                        console.error('Form submission error:', await response.text());
+                    }
+                } catch (err) {
+                    // Show error message for network errors
+                    errorMessage.style.display = 'flex';
+                    console.error('Network error:', err);
+                } finally {
+                    // Reset button state
+                    buttonText.textContent = originalText;
+                    submitButton.disabled = false;
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
