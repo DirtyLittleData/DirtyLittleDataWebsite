@@ -1,6 +1,5 @@
-/* Variables - keeping your existing color palette */
+/* Variables - Terra Cotta Color Palette */
 :root {
-    /* Terra Cotta Color Palette */
     --primary: #c6a691;
     --primary-dark: #9d6e54;
     --secondary: #3e3e38;
@@ -9,7 +8,7 @@
     --dark: #3f3f38;
     --grey: #767c6b;
     
-    /* New variables for modern design */
+    /* Utility variables */
     --transition-slow: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     --transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     --transition-fast: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
@@ -33,15 +32,16 @@ body {
     color: var(--dark);
     background-color: var(--light);
     overflow-x: hidden;
+    padding-bottom: 20px; /* For ribbon navigation */
 }
 
 a:link {
-    color:#56eea5
+    color: #56eea5;
 }
 
 a:visited {
-    color: rgb(8, 137, 8);
-  }
+    color: rgb(10, 176, 10);
+}
 
 .container {
     max-width: 1200px;
@@ -51,6 +51,7 @@ a:visited {
     z-index: 1;
 }
 
+/* Typography */
 .section-title {
     font-size: 2.5rem;
     margin-bottom: 10px;
@@ -67,7 +68,7 @@ a:visited {
     margin-bottom: 40px;
 }
 
-/* Modern section styling */
+/* Section styling */
 section {
     padding: 100px 0;
     position: relative;
@@ -121,28 +122,14 @@ section {
 }
 
 @keyframes float {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-    25% {
-        transform: translate(15px, -15px) rotate(5deg);
-    }
-    50% {
-        transform: translate(0, -30px) rotate(0deg);
-    }
-    75% {
-        transform: translate(-15px, -15px) rotate(-5deg);
-    }
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(15px, -15px) rotate(5deg); }
+    50% { transform: translate(0, -30px) rotate(0deg); }
+    75% { transform: translate(-15px, -15px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
 }
 
-/* About section with video backgrounds */
-.about {
-    background-color: var(--light);
-}
-
+/* Team members styling */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -261,21 +248,6 @@ section {
     pointer-events: none;
 }
 
-.team-member:hover .team-card-hover {
-    opacity: 0; /* Changed to 0 - we'll reveal this on click instead of hover */
-}
-
-.hover-content {
-    text-align: center;
-    padding: 30px;
-}
-
-.hover-content p {
-    font-size: 1.2rem;
-    font-style: italic;
-    color: var(--secondary);
-}
-
 .team-values {
     max-width: 800px;
     margin: 0 auto;
@@ -375,193 +347,6 @@ section {
     font-size: 0.9rem;
 }
 
-.principle-box {
-    position: relative;
-    background-color: white;
-    padding: 30px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-    overflow: hidden;
-}
-
-.principle-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    transition: var(--transition);
-}
-
-.principle-box:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--box-shadow-hover);
-}
-
-/* Color variations for principle boxes */
-.principle-box.accent-primary::before {
-    background-color: var(--primary);
-}
-
-.principle-box.accent-dark::before {
-    background-color: var(--primary-dark);
-}
-
-.principle-box.accent-green::before {
-    background-color: var(--accent);
-}
-
-.principle-box.accent-grey::before {
-    background-color: var(--grey);
-}
-
-.principle-box.accent-light::before {
-    background-color: var(--light);
-    border-top: 1px solid var(--grey);
-}
-
-/* Icon color variations */
-.principle-box.accent-primary i {
-    color: var(--primary);
-}
-
-.principle-box.accent-dark i {
-    color: var(--primary-dark);
-}
-
-.principle-box.accent-green i {
-    color: var(--accent);
-}
-
-.principle-box.accent-grey i {
-    color: var(--grey);
-}
-
-.principle-box.accent-light i {
-    color: var(--dark);
-}
-
-/* Enhanced background styling for various sections */
-.we-are {
-    background-color: var(--light);
-    position: relative;
-}
-
-.services {
-    background-color: white;
-    position: relative;
-}
-
-.projects {
-    background: linear-gradient(to bottom, var(--light) 0%, white 100%);
-    position: relative;
-}
-
-.principles {
-    background-color: white;
-}
-
-.origin-story {
-    background-color: var(--light);
-    position: relative;
-}
-
-.about {
-    background: linear-gradient(to bottom, white 0%, var(--light) 100%);
-}
-
-.hq {
-    background-color: var(--dark);
-    color: white;
-}
-
-.hq .section-title {
-    color: white;
-}
-
-.collaborations {
-    background-color: var(--accent);
-    color: white;
-}
-
-.collaborations .section-title,
-.collaborations h3 {
-    color: white;
-}
-
-/* Enhanced button styling with accent color on hover */
-.btn-primary:active {
-    background-color: var(--accent);
-    transform: translateY(1px);
-}
-
-/* Service hover effect with accent color */
-.service-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(129, 178, 154, 0.1); /* Accent color with transparency */
-    opacity: 0;
-    transition: var(--transition);
-    pointer-events: none;
-}
-
-.service-card:hover .service-hover {
-    opacity: 1;
-}
-
-/* Footer enhancements with accent color */
-footer {
-    background-color: var(--dark);
-    color: white;
-    padding: 60px 0 20px;
-    position: relative;
-}
-
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(to right, var(--primary), var(--accent), var(--primary-dark));
-}
-
-.footer-links a:hover {
-    color: var(--accent);
-}
-
-.footer-social .social-icons a:hover {
-    color: var(--accent);
-}
-
-/* Alternate row styling for projects */
-.project-card:nth-child(even) {
-    background-color: rgba(129, 178, 154, 0.05); /* Subtle accent color background */
-}
-
-/* Style the rotating text */
-#animated-text {
-    color: var(--accent);
-    font-weight: 700;
-}
-
-/* Mobile navbar accent color enhancement */
-.hamburger.active .bar:nth-child(2) {
-    background-color: var(--accent);
-}
-
-@media (max-width: 768px) {
-    .nav-links.active {
-        border-left: 4px solid var(--accent);
-    }
-}
-
 .form-group input,
 .form-group textarea {
     padding: 12px 15px;
@@ -584,6 +369,7 @@ footer::before {
     margin-top: 10px;
 }
 
+/* Button styling */
 .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -607,6 +393,11 @@ footer::before {
     box-shadow: 0 4px 15px rgba(157, 110, 84, 0.3);
 }
 
+.btn-primary:active {
+    background-color: var(--accent);
+    transform: translateY(1px);
+}
+
 .btn-primary:disabled {
     opacity: 0.7;
     cursor: not-allowed;
@@ -614,6 +405,30 @@ footer::before {
     box-shadow: none;
 }
 
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary-dark);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 24px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Form status messages */
 .form-status {
     margin-top: 20px;
 }
@@ -643,218 +458,92 @@ footer::before {
     font-size: 1.2rem;
 }
 
-/* Media Queries */
-@media (max-width: 992px) {
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-info {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    
-    .info-card {
-        flex: 1 1 calc(50% - 15px);
-        min-width: 250px;
-    }
-}
-
-@media (max-width: 768px) {
-    section {
-        padding: 80px 0;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .section-subtitle {
-        font-size: 1rem;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .team-values {
-        padding: 30px 20px;
-    }
-}
-
-@media (max-width: 576px) {
-    .info-card {
-        flex: 1 1 100%;
-    }
-}
-
-/* Animation for elements with AOS */
-[data-aos] {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-[data-aos].aos-animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Specific delay classes */
-[data-aos][data-aos-delay="100"] {
-    transition-delay: 0.1s;
-}
-
-[data-aos][data-aos-delay="200"] {
-    transition-delay: 0.2s;
-}
-
-[data-aos][data-aos-delay="300"] {
-    transition-delay: 0.3s;
-}
-
-[data-aos][data-aos-delay="400"] {
-    transition-delay: 0.4s;
-}
-
-[data-aos][data-aos-delay="500"] {
-    transition-delay: 0.5s;
-}
-
-/* Ribbon Navigation */
-.ribbon-nav {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 30px auto;
-    max-width: 900px;
-    flex-wrap: wrap;
-}
-
-.ribbon-item {
-    flex: 1;
-    min-width: 160px;
+/* Principles styling */
+.principle-box {
     position: relative;
-    overflow: hidden;
+    background-color: white;
+    padding: 30px;
     border-radius: var(--border-radius);
-    transition: var(--transition);
     box-shadow: var(--box-shadow);
-    text-align: center;
-}
-
-.ribbon-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--box-shadow-hover);
-}
-
-/* Create color variations for each ribbon item using the full color palette */
-.ribbon-item:nth-child(1) {
-    background-color: var(--primary);
-}
-
-.ribbon-item:nth-child(2) {
-    background-color: var(--accent);
-}
-
-.ribbon-item:nth-child(3) {
-    background-color: var(--primary-dark);
-}
-
-.ribbon-item:nth-child(4) {
-    background-color: var(--dark);
-}
-
-.ribbon-item:nth-child(5) {
-    background-color: var(--grey);
-}
-
-.ribbon-link {
-    display: block;
-    padding: 20px 15px;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    position: relative;
-    z-index: 1;
     transition: var(--transition);
+    overflow: hidden;
 }
 
-/* Enhanced hover effects */
-.ribbon-item::before {
+.principle-box::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(100%);
+    height: 4px;
     transition: var(--transition);
 }
 
-.ribbon-item:hover::before {
-    transform: translateY(0);
+.principle-box:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-hover);
 }
 
-.ribbon-item:hover .ribbon-link {
-    transform: translateY(-2px);
+/* Color variations for principle boxes */
+.principle-box.accent-primary::before { background-color: var(--primary); }
+.principle-box.accent-dark::before { background-color: var(--primary-dark); }
+.principle-box.accent-green::before { background-color: var(--accent); }
+.principle-box.accent-grey::before { background-color: var(--grey); }
+.principle-box.accent-light::before { 
+    background-color: var(--light);
+    border-top: 1px solid var(--grey);
 }
 
-/* Enhanced color usage throughout the site */
+/* Icon color variations */
+.principle-box.accent-primary i { color: var(--primary); }
+.principle-box.accent-dark i { color: var(--primary-dark); }
+.principle-box.accent-green i { color: var(--accent); }
+.principle-box.accent-grey i { color: var(--grey); }
+.principle-box.accent-light i { color: var(--dark); }
 
-/* Use accent color for select elements */
-.service-card:nth-child(2) i, 
-.project-card:nth-child(2) h3,
-.principle-box:nth-child(3) i,
-.principle-box:nth-child(6) i {
-    color: var(--accent);
+/* Section background styling */
+.we-are, 
+.about,
+.origin-story {
+    background-color: var(--light);
+    position: relative;
 }
 
-/* Use grey for select elements */
-.principle-box:nth-child(4) i,
-.service-card:nth-child(3) i {
-    color: var(--grey);
+.services,
+.principles {
+    background-color: white;
+    position: relative;
 }
 
-/* Incorporate accent color in buttons and elements */
-.btn-secondary {
-    background-color: transparent;
-    border: 2px solid var(--primary);
-    color: var(--primary-dark);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 24px;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    text-decoration: none;
+.projects {
+    background: linear-gradient(to bottom, var(--light) 0%, white 100%);
+    position: relative;
 }
 
-.btn-secondary:hover {
-    background-color: var(--accent);
-    border-color: var(--accent);
+.about {
+    background: linear-gradient(to bottom, white 0%, var(--light) 100%);
+}
+
+.hq {
+    background-color: var(--dark);
     color: white;
-    transform: translateY(-3px);
 }
 
-/* Enhance the hero section with accent color elements */
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(to right, var(--primary), var(--accent), var(--primary-dark));
+.hq .section-title {
+    color: white;
 }
 
-/* Add accent color to service cards */
+.collaborations {
+    background-color: var(--accent);
+    color: white;
+}
+
+.collaborations .section-title,
+.collaborations h3 {
+    color: white;
+}
+
+/* Service card styling */
 .service-card {
     position: relative;
     overflow: hidden;
@@ -883,11 +572,171 @@ footer::before {
     height: 6px;
 }
 
-/* Add color accents to principles section */
-.principles {
+.service-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(129, 178, 154, 0.1); /* Accent color with transparency */
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.service-card:hover .service-hover {
+    opacity: 1;
+}
+
+/* Color usage throughout the site */
+.service-card:nth-child(2) i, 
+.project-card:nth-child(2) h3,
+.principle-box:nth-child(3) i,
+.principle-box:nth-child(6) i {
+    color: var(--accent);
+}
+
+.principle-box:nth-child(4) i,
+.service-card:nth-child(3) i {
+    color: var(--grey);
+}
+
+/* Animation for elements with AOS */
+[data-aos] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific delay classes */
+[data-aos][data-aos-delay="100"] { transition-delay: 0.1s; }
+[data-aos][data-aos-delay="200"] { transition-delay: 0.2s; }
+[data-aos][data-aos-delay="300"] { transition-delay: 0.3s; }
+[data-aos][data-aos-delay="400"] { transition-delay: 0.4s; }
+[data-aos][data-aos-delay="500"] { transition-delay: 0.5s; }
+
+/* Project styling */
+.project-card:nth-child(even) {
+    background-color: rgba(129, 178, 154, 0.05); /* Subtle accent color background */
+}
+
+/* Hero section */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary), var(--accent), var(--primary-dark));
+}
+
+/* Animated text */
+#animated-text {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* Footer styling */
+footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 60px 0 20px;
     position: relative;
 }
 
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary), var(--accent), var(--primary-dark));
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.footer-social .social-icons a:hover {
+    color: var(--accent);
+}
+
+/* Ribbon Navigation */
+.ribbon-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark);
+    z-index: 1000;
+    height: 50px;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.ribbon-nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.ribbon-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    position: relative;
+}
+
+.ribbon-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(100%);
+    transition: var(--transition);
+}
+
+.ribbon-item:hover::before {
+    transform: translateY(0);
+}
+
+.ribbon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: var(--transition-fast);
+}
+
+.ribbon-link i {
+    margin-right: 6px;
+}
+
+.ribbon-item:hover .ribbon-link {
+    transform: translateY(-2px);
+}
+
+/* Principles section */
 .principles::before {
     content: '';
     position: absolute;
@@ -898,14 +747,68 @@ footer::before {
     background: linear-gradient(to right, var(--primary-dark), var(--accent), var(--primary));
 }
 
-/* Enhanced mobile styles */
-@media (max-width: 768px) {
-    .ribbon-nav {
-        flex-direction: column;
-        max-width: 400px;
+/* Media Queries */
+@media (max-width: 992px) {
+    .contact-content {
+        grid-template-columns: .5fr;
     }
     
-    .ribbon-item {
-        width: 100%;
+    .contact-info {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .info-card {
+        flex: 1 1 calc(50% - 15px);
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 20px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-values {
+        padding: 30px 20px;
+    }
+    
+    .ribbon-navigation {
+        height: 20px;
+    }
+
+    .ribbon-link span {
+        display: none;
+    }
+
+    .ribbon-link i {
+        font-size: 1.2rem;
+        margin-right: 0;
+    }
+    
+    body {
+        padding-bottom: 10px;
+    }
+    
+    .nav-links.active {
+        border-left: 4px solid var(--accent);
+    }
+}
+
+@media (max-width: 576px) {
+    .info-card {
+        flex: 1 1 100%;
     }
 }
