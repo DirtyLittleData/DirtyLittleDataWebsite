@@ -1,10 +1,12 @@
-const serverless = require('serverless-http');
-const express = require('express');
-const bodyParser = require('body-parser');
-const sgMail = require('@sendgrid/mail');
-require('dotenv').config();
+const express = require("express");
+const serverless = require("serverless-http");
+const bodyParser = require("body-parser");
+const sgMail = require("@sendgrid/mail");
+require("dotenv").config();
 
 const app = express();
+const MAX_MSG_LEN = 1000;
+
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 app.use(bodyParser.json());
@@ -20,11 +22,11 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/", async (req, res) => {
+// ✅ Must match the path under /.netlify/functions/contact
+app.post("/contact", async (req, res) => {
   const { name, email, subject, message } = req.body;
 
-  // Basic validation
-  if (!email || !message || message.length > 1000) {
+  if (!email || !message || message.length > MAX_MSG_LEN) {
     return res.status(400).send("Invalid input");
   }
 
@@ -44,5 +46,5 @@ app.post("/", async (req, res) => {
   }
 });
 
-// Export the serverless function
+// ✅ This is what Netlify uses to run your function
 module.exports.handler = serverless(app);
