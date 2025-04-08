@@ -20,7 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/contact", async (req, res) => {
+app.post("/", async (req, res) => {
   const { name, email, subject, message } = req.body;
 
   // Basic validation
