@@ -1,5 +1,5 @@
 [build]
-  functions = "backend/Functions"
+functions = "netlify/functions"
 
 [dev]
-  functions = "backend/Functions"
+  functions = "netifly/functions"
