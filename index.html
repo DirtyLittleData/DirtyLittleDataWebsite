@@ -361,7 +361,8 @@
                 </div>
                 
                 <div class="contact-form-container" data-aos="fade-up" data-aos-delay="300">
-                    <form id="contact-form">
+                    <form name="contact" method="POST" data-netlify="true" id="contact-form">
+                        <input type="hidden" name="form-name" value="contact" />
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Name</label>
@@ -507,13 +508,13 @@
                     // Determine the correct API endpoint based on environment
                     let apiEndpoint;
                     const currentHostname = window.location.hostname;
-                    
+                  
                     if (currentHostname === 'localhost' || currentHostname === '127.0.0.1') {
-                        // Local development - use local server
-                        apiEndpoint = 'http://localhost:5000/contact';
+                        // Local development - point to the deployed netlify function
+                        apiEndpoint = 'https://dirtylittledata.com/.netlify/functions/contact';
                     } else {
-                        // Production - use production server
-                        apiEndpoint = 'https://dirtylittledata.com/contact';
+                        // Production - use Netlify function
+                        apiEndpoint = '/.netlify/functions/contact';
                     }
                     
                     const response = await fetch(apiEndpoint, {
