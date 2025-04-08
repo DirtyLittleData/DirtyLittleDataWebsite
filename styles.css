@@ -812,3 +812,168 @@ footer::before {
         flex: 1 1 100%;
     }
 }
+/* Project Images - Complete Solution */
+
+/* Core container styling */
+.project-image-container {
+    width: 100%;
+    height: 250px;
+    perspective: 1000px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0; /* Remove default margins that could cause positioning issues */
+  }
+  
+  .project-image-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Card styling */
+  .project-image-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Enable card flip on hover when using the flip variant */
+  .project-image-container.flip:hover .project-image-card {
+    transform: rotateY(180deg);
+  }
+  
+  /* Front and back card faces */
+  .project-image-front, .project-image-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari support */
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex; /* Add this */
+    justify-content: center; /* Add this */
+    align-items: center; /* Add this */
+  }
+  
+  .project-image-back {
+    transform: rotateY(180deg);
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Image styling */
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Makes different sized images consistent */
+    object-position: center; /* Centers the image within the container */
+    transition: transform 0.5s ease, filter 0.3s ease;
+  }
+  
+  /* Hover effects for images */
+  .project-image-container:hover .project-image:not(.no-zoom) {
+    transform: scale(1.05);
+  }
+  
+  .project-image-container:hover .project-image:not(.no-brighten) {
+    filter: brightness(1.05);
+  }
+  
+  /* Modern look styling */
+  .project-image.modern {
+    filter: saturate(0.9) brightness(0.98);
+  }
+  
+  .project-image.modern:hover {
+    filter: saturate(1) brightness(1.05);
+  }
+  
+  /* Overlay styling */
+  .project-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    color: white;
+    padding: 15px;
+    transform: translateY(100%);
+    transition: transform 0.2s ease;
+    opacity: 0;
+    z-index: 5; /* Ensure it appears above the image */
+  }
+  
+  .project-image-container:hover .project-image-overlay {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Back card content styling */
+  .project-image-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .project-image-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  /* Project card integration */
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Grid layout */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  /* Button styling for back of card */
+  .project-image-back .btn-secondary {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #e17055; /* Fallback if CSS variable isn't defined */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  
+  .project-image-back .btn-secondary:hover {
+    background-color: #d15a45;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .project-card {
+      max-width: 100%;
+    }
+    
+    .project-image-container {
+      height: 200px;
+    }
+  }

@@ -104,49 +104,78 @@
         </div>
     </section>
 
-    <!-- Featured Projects Section -->
-    <section id="projects" class="projects">
-        <div class="parallax-background">
-            <div class="floating-shape shape3"></div>
-        </div>
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Recent work we're proud of</p>
+<!-- Featured Projects Section -->
+<section id="projects" class="projects">
+    <div class="parallax-background">
+        <div class="floating-shape shape3"></div>
+    </div>
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Recent work we're proud of</p>
+        
+        <div class="projects-grid">
+            <!-- First Project Card - Now with flip effect -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-info">
+                    <h3>PDF Tracker</h3>
+                    <p>Advanced document management and tracking solution.</p>
+                </div>
+                <div class="project-image-container flip">
+                    <div class="project-image-card">
+                        <div class="project-image-front">
+                            <img src="Images/PDFConverter.png" alt="PDF Tracker" class="project-image modern">
+                        </div>
+                        <div class="project-image-back">
+                            <h3 class="project-image-title">PDF Tracker</h3>
+                            <p class="project-image-description">Document management solution.</p>
+                            <a href="https://breakingplaidpdfconverter.streamlit.app/" class="btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            <div class="projects-grid">
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image">
-                        <img src="Images/PDFConverter.png" alt="PDF Tracker">
-                    </div>
-                    <div class="project-info">
-                        <h3>PDF Tracker</h3>
-                        <p>Advanced document management and tracking solution.</p>
-                        <a href="https://breakingplaidpdfconverter.streamlit.app/" class="btn-secondary">View Project</a>
+            <!-- Second Project Card - Already has flip effect -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-info">
+                    <h3>Chatbot</h3>
+                    <p>Intelligent conversational interfaces for enhanced customer experience.</p>
+                </div>
+                <div class="project-image-container flip">
+                    <div class="project-image-card">
+                        <div class="project-image-front">
+                            <img src="Images/ChatBot.png" alt="Chatbot" class="project-image modern">
+                        </div>
+                        <div class="project-image-back">
+                            <h3 class="project-image-title">Chatbot</h3>
+                            <p class="project-image-description">Intelligent conversational interfaces.</p>
+                            <a href="https://github.com/jonnyblevins/PythonPDFConverter" class="btn-secondary">View Details</a>
+                        </div>
                     </div>
                 </div>
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-image">
-                        <img src="Images/ChatBot.png" alt="Chatbot">
-                    </div>
-                    <div class="project-info">
-                        <h3>Chatbot</h3>
-                        <p>Intelligent conversational interfaces for enhanced customer experience.</p>
-                        <a href="https://github.com/jonnyblevins/PythonPDFConverter" class="btn-secondary">View Project</a>
-                    </div>
+            </div>
+            
+            <!-- Third Project Card - Now with flip effect -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-info">
+                    <h3>Quiz Platform</h3>
+                    <p>Interactive learning and assessment tools.</p>
                 </div>
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-image">
-                        <img src="Images/InteractiveQuiz.png" alt="Quiz Platform">
-                    </div>
-                    <div class="project-info">
-                        <h3>Quiz Platform</h3>
-                        <p>Interactive learning and assessment tools.</p>
-                        <a href="#" class="btn-secondary">View Project</a>
+                <div class="project-image-container flip">
+                    <div class="project-image-card">
+                        <div class="project-image-front">
+                            <img src="Images/InteractiveQuiz.png" alt="Quiz Platform" class="project-image modern">
+                        </div>
+                        <div class="project-image-back">
+                            <h3 class="project-image-title">Quiz Platform</h3>
+                            <p class="project-image-description">Interactive learning tool.</p>
+                            <a href="https://github.com/DirtyLittleData/InteractiveQuizBanks" class="btn-secondary">View Details</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Core Principles Section -->
     <section id="principles" class="principles">
@@ -410,7 +439,8 @@
         
         // Animated Text
         const messages = [
-          "Growing with You",
+          "Growing",
+          "Programming",
           "Students",
           "Teachers",
           "Mentors",
