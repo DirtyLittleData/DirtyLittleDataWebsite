@@ -628,7 +628,7 @@ section {
 /* Hero section */
 .hero::after {
     content: '';
-    position: absolute;
+    position: center;
     bottom: 0;
     left: 0;
     width: 100%;
